@@ -22,6 +22,11 @@ class BasicsController < ApplicationController
     else
       @quotations = Quotation.order(:category)
     end
+
+    if params[:word]!=""
+      like_keyword = "%#{params[:word]}%"
+      @quotations = Quotation.where("quote LIKE ? OR author_name LIKE ?", like_keyword,like_keyword)
+    end
   end
 
   private

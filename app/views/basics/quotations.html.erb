@@ -1,3 +1,9 @@
+<%= form_tag basics_quotations_path, method: "get" do %>
+   <%= label_tag(:word, "Search: ") %>
+    <%= text_field_tag(:word) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
 <h1>Quotations</h1>
 <ul>
   <% for quotation in @quotations %>
