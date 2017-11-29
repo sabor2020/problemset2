@@ -15,7 +15,7 @@ class BasicsController < ApplicationController
       end
     else
       @quotation = Quotation.new
-      @cat=Quotation.distinct.pluck(:category)
+      @cat=Quotation.distinct.pluck("category")
     end
     if params[:sort_by] == "date"
       @quotations = Quotation.order(:created_at)

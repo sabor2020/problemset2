@@ -15,8 +15,17 @@
 <% end %>
 
 <hr/>
+
+
 <h3>New quotation</h3>
 <%= form_for @quotation, :url => { :action => :quotations } do |form| %>
+    <% if @quotation.errors.any? %>
+        <ul>
+          <% for m in @quotation.errors.full_messages %>
+              <li><%= m %></li>
+          <% end %>
+        </ul>
+    <% end %>
 
     <fieldset>
       <legend>Enter details</legend>
