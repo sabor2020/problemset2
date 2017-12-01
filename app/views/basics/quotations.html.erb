@@ -21,7 +21,11 @@
 <% end %>
 
 <hr/>
-
+<%= link_to "Export to XML format", basics_quotations_path(:format => 'xml') %>
+<br/>
+<br/>
+<%= link_to "Export to JSON format", basics_quotations_path(:format => 'json') %>
+<hr/>
 
 <h3>New quotation</h3>
 <%= form_for @quotation, :url => { :action => :quotations } do |form| %>

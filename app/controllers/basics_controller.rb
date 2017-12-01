@@ -17,10 +17,16 @@ class BasicsController < ApplicationController
       @quotation = Quotation.new
       @cat=Quotation.distinct.pluck("category")
     end
+
     if params[:sort_by] == "date"
       @quotations = Quotation.order(:created_at)
     else
       @quotations = Quotation.order(:category)
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: @quotations }
+      format.xml { render 'quotations.xml.builder' }
     end
 
     if params[:word]!=""
